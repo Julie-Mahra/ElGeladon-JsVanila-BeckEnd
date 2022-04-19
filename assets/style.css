@@ -1,35 +1,21 @@
-@import url("https://fonts.googleapis.com/css?family=Exo:400,700");
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 body,
 html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100vh;
-  overflow: auto;
-  background-color: rgb(255, 255, 255);
-  font-family: sans-serif;
-}
-
-.Home{
-  position: relative;
-  background-image: rgb(174, 209, 238);
-  background: radial-gradient(
-    circle,
-    rgba(88, 123, 175, 0.971) 0%,
-    rgb(150, 91, 190) 100%
-  );
-  min-height: calc(100vh - 60px);
-  margin: 15px;
-  padding: 15px;
-  border-radius: 20px;
-  color: #000000;
-  box-shadow: 0px 0px 15px rgba(19, 10, 10, 0.3);
+  font-family: "Exo", sans-serif;
+  background-image: url('./images/PicoleBG.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 30px;
 }
 
 .Home > h2 {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   color: rgb(0, 0, 0);
 }
 
@@ -43,7 +29,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 @media (max-width: 350px) {
@@ -55,7 +41,7 @@ html {
 .PaletaLista {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 25px 50px;
+  grid-gap: .9rem;
 }
 
 @media (max-width: 1220px) {
@@ -73,12 +59,12 @@ html {
 .PaletaCardItem,
 .PaletaListaItem {
   font-family: "Exo";
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(126, 74, 158, 0.77);
   border-radius: 10px;
-  padding: 10px;
+  padding: 1rem;
   width: 315px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .PaletaCardItem {
@@ -104,43 +90,45 @@ html {
 
 .PaletaCardItem__sabor,
 .PaletaListaItem__sabor {
-  font-size: 1.5em;
-  font-weight: 600;
+  font-size: 1.1em;
+  font-weight: 700;
   line-height: 100%;
 }
 
 .PaletaCardItem__descricao,
 .PaletaListaItem__descricao {
-  font-size: 0.9em;
+  font-size: 1em;
+  font-weight: 700;
 }
 
 .PaletaCardItem__preco,
 .PaletaListaItem__preco {
-  color: rgb(76, 42, 54);
+  font-size: 1.1em;
+  color: rgb(50, 6, 53);
   font-weight: 600;
 }
 
 .PaletaListaItem__foto {
   height: 180px;
-  margin-right: -60px;
+  margin-right: auto;
 }
 
 .paleta-escolhida-espaço {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
+  padding: .5rem;
 }
 
 #idPaleta {
-  padding: 0.5rem;
+  padding: 0.6rem;
   width: 100%;
-  border: #000000;
+  border: #545353f0;
   border-radius: 0.3rem;
 }
 
 #idPaletaButton {
-  background-color: rgba(164, 151, 176, 0.169);
+  background-color: rgba(69, 46, 89, 0.56);
   border: 1px solid #9400d3;
   border-radius: 0.3rem;
   padding: 0.4rem;
@@ -154,8 +142,8 @@ html {
 }
 
 #idPaletaButton:hover {
-  background-color: whitesmoke;
-  color: #2e2c2f8b;
+  background-color: rgb(184, 163, 163);
+  color: black;
 }
 
 .Header {
@@ -174,44 +162,43 @@ html {
   display: flex;
   align-items: center;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(126, 74, 158, 0.77);
   width: 340px;
   height: 45px;
 }
 
 .Logo__titulo {
   position: absolute;
-  left: 55px;
+  left: 75px;
   font-family: "Exo";
   font-weight: 700;
-  font-size: 2.5em;
+  font-size: 2em;
 }
 
 Logo__icone {
   position: absolute;
-  left: -20px;
-  top: -15px;
+  left: -15px;
+  top: -10px;
 }
-​ .Sacola {
+
+.Sacola {
   position: relative;
+  background-color: rgba(126, 74, 158, 0.586);
 }
-​ .Sacola__icone {
+
+.Sacola__icone {
   cursor: pointer;
 }
 
 .Sacola__badge {
-  background-color: red;
-  width: 20px;
-  height: 20px;
-  text-align: center;
+  width: 15px;
+  height: 15px;
   vertical-align: middle;
   position: absolute;
-  color: white;
-  font-size: 0.9em;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 40%;
   bottom: 0;
   right: 0;
 }
