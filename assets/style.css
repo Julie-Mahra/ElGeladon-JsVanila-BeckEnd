@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+@import url("https://fonts.googleapis.com/css?family=Exo:400,700");
 
 body,
 html {
@@ -11,12 +11,13 @@ html {
   font-family: sans-serif;
 }
 
-.Home {
+.Home{
   position: relative;
-  background-image: rgb(174,209,238);
-  background: radial-gradient(circle, 
-  rgba(88, 123, 175, 0.971) 0%,
-  rgb(150, 91, 190) 100%
+  background-image: rgb(174, 209, 238);
+  background: radial-gradient(
+    circle,
+    rgba(88, 123, 175, 0.971) 0%,
+    rgb(150, 91, 190) 100%
   );
   min-height: calc(100vh - 60px);
   margin: 15px;
@@ -42,6 +43,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
 }
 
 @media (max-width: 350px) {
@@ -70,7 +72,7 @@ html {
 
 .PaletaCardItem,
 .PaletaListaItem {
-  font-family: 'Exo';
+  font-family: "Exo";
   background: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   padding: 10px;
@@ -82,7 +84,7 @@ html {
 .PaletaCardItem {
   margin: 20px 0;
   height: 150px;
-  width: auto;
+  width: 315px;
 }
 
 @media (max-width: 400px) {
@@ -102,14 +104,14 @@ html {
 
 .PaletaCardItem__sabor,
 .PaletaListaItem__sabor {
-  font-size: 1.50em;
+  font-size: 1.5em;
   font-weight: 600;
   line-height: 100%;
 }
 
 .PaletaCardItem__descricao,
 .PaletaListaItem__descricao {
-  font-size: 0.90em;
+  font-size: 0.9em;
 }
 
 .PaletaCardItem__preco,
@@ -122,3 +124,120 @@ html {
   height: 180px;
   margin-right: -60px;
 }
+
+.paleta-escolhida-espaço {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+#idPaleta {
+  padding: 0.5rem;
+  width: 100%;
+  border: #000000;
+  border-radius: 0.3rem;
+}
+
+#idPaletaButton {
+  background-color: rgba(164, 151, 176, 0.169);
+  border: 1px solid #9400d3;
+  border-radius: 0.3rem;
+  padding: 0.4rem;
+  margin-top: 0.3rem;
+  font-weight: 600;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+#idPaletaButton:hover {
+  background-color: whitesmoke;
+  color: #2e2c2f8b;
+}
+
+.Header {
+  max-width: 1110px;
+  margin: 0 auto 25px auto;
+  position: relative;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 20px 0 35px 0;
+}
+.Logo {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 340px;
+  height: 45px;
+}
+
+.Logo__titulo {
+  position: absolute;
+  left: 55px;
+  font-family: "Exo";
+  font-weight: 700;
+  font-size: 2.5em;
+}
+
+Logo__icone {
+  position: absolute;
+  left: -20px;
+  top: -15px;
+}
+​ .Sacola {
+  position: relative;
+}
+​ .Sacola__icone {
+  cursor: pointer;
+}
+
+.Sacola__badge {
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  color: white;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+}
+
+@media (max-width: 1220px) {
+  .Header {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 840px) {
+  .Header {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 400px) {
+  .Header {
+    max-width: 250px;
+  }
+  .row {
+    column-gap: 20px;
+  }
+  .Logo__titulo {
+    font-size: 1.5em;
+  }
+}
+
+/*AULA 02 VIDEO 01*/

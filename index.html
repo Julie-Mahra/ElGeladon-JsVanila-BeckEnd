@@ -1,26 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/style.css">
-    <title>El Geladon</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/style.css">
+  <title>El Geladon</title>
 </head>
+
 <body>
-    <section class="Home">
-        <h2>Paletas Disponíveis:</h2>
-        <div class="Home__container">
-          <div class="PaletaListaItem">
-            <div>
-              <div class="PaletaListaItem__sabor">Doce de Leite com Doce de Leite</div>
-              <div class="PaletaListaItem__preco">R$ 10,00</div>
-              <div class="PaletaListaItem__descricao">Quam vulputate dignissim suspendisse in est ante in nibh mauris.</div>
-            </div>
-              <img class="PaletaListaItem__foto" src=assets/images/doce-de-leite-com-doce-de-leite.png alt="Paleta de Doce de Leite" />
+  <section class="Home">
+    <div class="Home__header Header">
+      <div class="row">
+        <div class="Header__logo Logo">
+          <img src="./assets/icons/logo.svg" width="70px" alt="Logo El Geladon" class="Logo__icone" />
+          <span class="Logo__titulo"> El Geladon </span>
+        </div>
+        ​
+        <div class="Header__opcoes Opcoes">
+          <div class="Opcoes__sacola Sacola">
+            <img src="./assets/icons/sacola.svg" width="40px" class="Sacola__icone" alt="Sacola de compras" />
           </div>
         </div>
-    </section>
-    <script src="./assets/script.js"></script>
+      </div>
+    </div>
+
+    <h2>Paleta(s) Escolhida(s)</h2>
+    <div>
+      <div class="paleta-escolhida-espaço"></div>
+
+      <div>
+        <input type="number" id="idPaleta" placeholder="Digite o número da Paleta e clique em 'ESCOLHER' " />
+        <button id="idPaletaButton" onclick="findByIdPaletas()">ESCOLHER</button>
+
+        <div id="paletaEscolhida"></div>
+
+      </div>
+
+    </div>
+    <h2>Paletas Disponíveis:</h2>
+
+    <div class="Home__container">
+      <div class="PaletaLista" id="paletaList">
+      </div>
+    </div>
+  </section>
+  <script src="./assets/script.js"></script>
 </body>
+
 </html>
