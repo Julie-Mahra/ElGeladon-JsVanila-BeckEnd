@@ -25,20 +25,64 @@
         </div>
       </div>
     </div>
+    <header>
+    <section class="button-modal-create">
+        <button type="button" class="default-button" onclick="abrirModal()">CRIAR PALETA</button>
+    </section>
 
-    <h2>Paleta(s) Escolhida(s)</h2>
-    <div>
-      <div class="paleta-escolhida-espaço"></div>
+    <section class="modal-overlay" id="overlay">
 
-      <div>
-        <input type="number" id="idPaleta" placeholder="Digite o número da Paleta e clique em 'ESCOLHER' " />
-        <button id="idPaletaButton" onclick="findByIdPaletas()">ESCOLHER</button>
+        <div class="modal">
+            
+            <div class="modal-header">
+                <h3 id="title-header-modal">Cadastrar Nova Paleta</h3>
+                <a onclick="fecharModal()" class="close-modal">X</a>
+            </div>
+            
+            <div class="modal-body">
+                <div>
+                  <input type="hidden" id="id">
+                    <input type="text" name="sabor" id="sabor" placeholder="Sabor da Paleta">
+                    <input type="number" name="preco" id="preco" placeholder="Preço da Paleta">                
+                    <textarea type="text" name="descricao" id="descricao" placeholder="Descrição da Paleta" rows="5"></textarea>
+                    <input type="text" name="foto" id="foto" placeholder="Foto da Paleta">
+                    <button id="button-form-modal" onclick="createPaleta()">CADASTRAR</button>
+                </div>
+             </div>
+        </div>
+    </section>
 
-        <div id="paletaEscolhida"></div>
+    <section class="modal-overlay"  id="overlay-delete">
+        <div class="modal">
+          <div class="modal-header">
+            <h3 id="title-header-modal">Confirmar exclusão</h3>
+            <a onclick="fecharModalDelete()" class="close-modal">X</a>
+         </div>
+         <div class="modal-body-delete">
+           <p>Deseja excluir esta paleta?</p>
+          <div class="btns_delete">
+            <button class="btn_delete_yes btn_delete">Sim</button>
+            <button class="btn_delete_no btn_delete" onclick="fecharModalDelete()" >Não</button>
+          </div>
+       </div>
 
+
+        </div>
+
+
+    </section>
+
+    <h2>Pesquisar Paletas</h2>
+      <div class="paleta-escolhida-espaço">
+            <div id="paleta-escolher-input-espaço">
+                <input type="number" id="idPaleta" placeholder="Digite o número da Paleta e clique em 'ESCOLHER' " />
+                <button id="idPaletaButton" onclick="findByIdPaletas()">ESCOLHER</button>
+            </div>
+        <div id="paletaEscolhida">
+
+        </div>
       </div>
 
-    </div>
     <h2>Paletas Disponíveis:</h2>
 
     <div class="Home__container">
@@ -46,6 +90,7 @@
       </div>
     </div>
   </section>
+</header>
   <script src="./assets/script.js"></script>
 </body>
 
