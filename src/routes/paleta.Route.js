@@ -15,4 +15,3 @@ route.delete('/delete/:id', controllerPaletas.deletePaletaController);
 
 /* Módulo que disponibiliza as rotas para o arquivo Index.js*/
 module.exports = route;
-
