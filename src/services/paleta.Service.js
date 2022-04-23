@@ -2,7 +2,8 @@
 
 
 
-/*get all*/
+/*get all em conjunto com Mongoose DB*/
+const Paleta = require('../model/Paleta');
 const Paletas = require('../model/Paleta');
 
 const findAllPaletasService = async () => {
@@ -11,18 +12,16 @@ const findAllPaletasService = async () => {
   }
 
 
-/*get by id*/
+/*get by id em conjunto com Mongoose DB*/
 const findByIdPaletaService = async (parametroId) => {
   const paleta = await Paletas.findById(parametroId);
     return paleta;
 };
 
 /* create (PUSH)*/
-const createPaletaService = (newPaleta) => {
-  const newId = paletas.length + 1;
-  newPaleta.id = newId;
-  paletas.push(newPaleta);
-  return newPaleta;
+const createPaletaService = async (newPaleta) => {
+  const paletaCreated = await Paleta.create(newPaleta)
+  return paletaCreated;
 };
 
 const updatePaletaService = (id, paletaEdited) => {

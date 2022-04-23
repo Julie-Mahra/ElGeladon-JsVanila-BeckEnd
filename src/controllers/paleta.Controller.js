@@ -18,10 +18,23 @@ const findByIdPaletaController = async (req, res) => {
   res.send(escolhaPaleta);
 };
 /*criação de um novo item*/
-const createPaletaController = (req, res) => {
+const createPaletaController = async (req, res) => {
   const paleta = req.body;
-  const newPaleta = paletasService.createPaletaService(paleta);
-  res.send(newPaleta);
+  if (
+    !paleta ||
+    !paleta.sabor ||
+    !paleta.descricao ||
+    !paleta.foto ||
+    !paleta.preco
+  ) {
+    return res
+      .status(400)
+      .send({ message: 'Faltam dados para a incluir nova paleta ao cardápio!' });
+  }
+  
+    const newPaleta = await paletasService.createPaletaService(paleta);  
+  res.status(201)
+    .send(newPaleta);
 };
 
 /*atualização dos itens, uma a um*/
