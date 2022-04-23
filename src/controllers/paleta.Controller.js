@@ -1,15 +1,20 @@
 /*Controladores de busca (todas as paletas/por Id), que dá acesso ao Service  */
+const { default: mongoose } = require('mongoose');
 const paletasService = require('../services/paleta.Service');
 
 /*Busca lista completa de paletas disponíveis (retornando objetos em json) */
-const findAllPaletasController = (req, res) => {
-  const paletas = paletasService.findAllPaletasService();
+const findAllPaletasController = async (req, res) => {
+  const paletas = await paletasService.findAllPaletasService();
   res.send(paletas);
 };
 /*Busca paletas pelo id de acordo com a pesquisa por parâmetro (retornando objetos em json)*/
-const findByIdPaletaController = (req, res) => {
-  const parametroId = Number(req.params.id);
-  const escolhaPaleta = paletasService.findByIdPaletaService(parametroId);
+const findByIdPaletaController = async (req, res) => {
+  const parametroId = req.params.id;
+
+  if (!mongoose.Types.ObjectId.isValid(parametroId)) {
+    return res.status(400).send({ message: 'Id Inválido' });
+  }
+  const escolhaPaleta = await paletasService.findByIdPaletaService(parametroId);
   res.send(escolhaPaleta);
 };
 /*criação de um novo item*/
