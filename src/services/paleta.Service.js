@@ -1,16 +1,13 @@
 /* local de armazenamento dos dados que serão exibidos de acordo com a busca (todas as paletas/por Id)  */
 
-
-
-/*get all em conjunto com Mongoose DB*/
 const Paleta = require('../model/Paleta');
 const Paletas = require('../model/Paleta');
 
+/*get all em conjunto com Mongoose DB*/
 const findAllPaletasService = async () => {
   const paletas = await Paletas.find();
     return paletas;
   }
-
 
 /*get by id em conjunto com Mongoose DB*/
 const findByIdPaletaService = async (parametroId) => {
@@ -18,22 +15,22 @@ const findByIdPaletaService = async (parametroId) => {
     return paleta;
 };
 
-/* create (PUSH)*/
+/* create (PUSH)em conjunto com Mongoose DB*/
 const createPaletaService = async (newPaleta) => {
   const paletaCreated = await Paleta.create(newPaleta)
   return paletaCreated;
 };
 
-const updatePaletaService = (id, paletaEdited) => {
-  paletaEdited['id'] = id;
-  const paletaIndex = paletas.findIndex((paleta) => paleta.id == id);
-  paletas[paletaIndex] = paletaEdited;
-  return paletaEdited;
-};
+/* Update (PUT)em conjunto com Mongoose DB*/
+const updatePaletaService = async (id, paletaEdited) => {
+  const paletaUpdate = await Paletas.findByIdAndUpdate(id, paletaEdited)
+  return paletaUpdate;
+}
 
-const deletePaletaService = (id) => {
-  const paletaIndex = paletas.findIndex((paleta) => paleta.id == id);
-  return paletas.splice(paletaIndex, 1);
+/* Delete em conjunto com Mongoose DB*/
+
+const deletePaletaService = async (id) => {
+  return await Paletas.findByIdAndDelete(id);
 };
 
 /* Módulo que disponibiliza as rotas para o arquivo Index.js*/
