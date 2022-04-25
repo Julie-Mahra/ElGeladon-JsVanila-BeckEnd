@@ -24,7 +24,6 @@ const findByIdPaletaController = async (req, res) => {
 /*criação de um novo item em conjunto com Mongo DB*/
 const createPaletaController = async (req, res) => {
   const paleta = req.body;
-
   const newPaleta = await paletasService.createPaletaService(paleta);
   res.status(201).send(newPaleta);
 };
@@ -32,9 +31,7 @@ const createPaletaController = async (req, res) => {
 /*atualização dos itens, uma a um*/
 const updatePaletaController = async (req, res) => {
   const idParam = req.params.id;
-
   const editPaleta = req.body;
-
   const updatedPaleta = await paletasService.updatePaletaService(
     idParam,
     editPaleta,

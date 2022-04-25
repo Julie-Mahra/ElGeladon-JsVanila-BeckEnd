@@ -1,10 +1,12 @@
 /*Rotas de acesso à todas as paletas, enviando para o Controller*/
 const route = require('express').Router();
 const controllerPaletas = require('../controllers/paleta.Controller');
+
 const {
   validId,
   validObjectBody,
 } = require('../middlewares/paleta.middleware');
+
 /*Rota para busca de todas as paletas*/
 route.get('/all-paletas', controllerPaletas.findAllPaletasController);
 

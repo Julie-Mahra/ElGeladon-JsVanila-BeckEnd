@@ -13,8 +13,6 @@ const validObjectBody = (req, res, next) => {
   const paleta = req.body;
   if (
     !paleta ||
-    !paleta.sabor ||
-    !paleta.descricao ||
     !paleta.foto ||
     !paleta.preco
   ) {
@@ -23,8 +21,7 @@ const validObjectBody = (req, res, next) => {
     });
   }
   next();
-};
-
+}
 module.exports = {
   validId,
   validObjectBody,

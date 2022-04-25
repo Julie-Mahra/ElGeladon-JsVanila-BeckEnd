@@ -3,185 +3,179 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: Exo, sans-serif;
 }
 
-body {
-  background: rgb(63, 94, 251);
-  background: radial-gradient(
-    circle,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 205, 0.5130427170868348) 100%
-  );
+body,
+html {
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+  background-color: #ffffff;
+}
+
+.home {
+  position: relative;
+  background: rgb(121, 119, 120);
+  background: radial-gradient
+  (circle, rgba(156,153,154,0.7567401960784313) 0%, 
+  rgb(101, 118, 118) 100%);
   min-height: calc(100vh - 60px);
   margin: 15px;
   padding: 15px;
-}
-.Home > h2 {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  color: rgb(0, 0, 0);
+  border-radius: 20px;
+  color: #000000;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
 }
 
-.Home > div {
+.home h2 {
   display: flex;
   justify-content: center;
-  color: rgb(0, 0, 0);
+  color: #000000;
 }
 
-.Home__container {
+.home-container {
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: center;
-  padding: 1rem;
+  padding: 2rem;
 }
 
 @media (max-width: 350px) {
-  .Home__container {
+  .home-container {
     justify-content: unset;
   }
 }
 
-.PaletaLista {
+.paleta-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 0.9rem;
+  grid-gap: 25px 50px;
 }
 
 @media (max-width: 1220px) {
-  .PaletaLista {
+  .paleta-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 840px) {
-  .PaletaLista {
+  .paleta-list {
     grid-template-columns: 1fr;
   }
 }
 
-.PaletaCardItem,
-.PaletaListaItem {
-  font-family: 'Exo';
-  background-color: rgba(168, 52, 168, 0.423);
+.paleta-card-item,
+.paleta-list-item {
+  background: #c9c2c24d;
   border-radius: 10px;
-  padding: 1rem;
+  border: solid chartreuse;
+  padding: 10px;
   width: 315px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
-.PaletaCardItem {
-  margin: 20px 0;
+.paleta-card-item {
   height: 150px;
   width: 315px;
 }
 
+
+
 @media (max-width: 400px) {
-  .PaletaCardItem,
-  .PaletaListaItem {
+  .paleta-card-item,
+  .paleta-list-item {
     width: 210px;
     height: 180px;
   }
 }
 
-.PaletaCardItem > div,
-.PaletaListaItem > div {
+.paleta-card-item > div,
+.paleta-list-item > div {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 
-.PaletaCardItem__sabor,
-.PaletaListaItem__sabor {
-  font-size: 1.1em;
+.paleta-card-item-sabor,
+.paleta-list-item-sabor {
+  font-size: 1.5em;
   font-weight: 700;
   line-height: 100%;
 }
 
-.PaletaCardItem__descricao,
-.PaletaListaItem__descricao {
-  font-size: 1em;
+.paleta-card-item-descricao,
+.paleta-list-item-descricao {
+  font-size: 0.90em;
+  font-weight: 400;
+}
+
+.paleta-card-item-preco,
+.paleta-list-item-preco {
+  color: rgb(55, 84, 138);
   font-weight: 700;
 }
 
-.PaletaCardItem__preco,
-.PaletaListaItem__preco {
-  font-size: 1.1em;
-  color: rgb(50, 6, 53);
-  font-weight: 600;
+.paleta-list-item-foto,
+.paleta-card-item-foto {
+  height: 150px;
+  margin-right: -60px;
 }
 
-.PaletaListaItem__foto {
-  height: 180px;
-  margin-right: -20px;
-}
-
-.paleta-escolhida-espaço {
+.paleta-escolhida-espaco {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 2rem;
+}
+
+#search-input {
   padding: 0.5rem;
-}
-
-#idPaleta {
-  padding: 0.6rem;
-  width: 100%;
-  border-radius: 0.3rem;
-}
-
-#idPaletaButton {
-  background: rgb(63, 94, 251);
-  background: radial-gradient(
-    circle,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 205, 0.5130427170868348) 100%
-  );
-  border-radius: 0.3rem;
-  padding: 0.4rem;
-  margin-top: 0.3rem;
-  font-weight: 600;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  cursor: pointer;
+  width: 315px;
+  border: none;
+  border-radius: 0.2rem;
+  border: 2px solid #fff;
+  outline: none;
   font-size: 1rem;
 }
 
-#idPaletaButton:hover {
-  background-color: rgb(184, 163, 163);
-  color: black;
-  transition: 0.3s ease-in-out;
+.search-button {
+  background-color: transparent;
+  border: 2px solid #9400d3;
+  padding: 0.5rem;
+  color: #9400d3;
+  font-weight: 600;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 1rem;
+  text-align: center;
+}
+.search-button:hover {
+  background-color: #9400d3;
+  color: #ffffff;
 }
 
 .default-button {
-  background: rgb(63, 94, 251);
-  background: radial-gradient(
-    circle,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 205, 0.5130427170868348) 100%
-  );
-  border-radius: 0.3rem;
+  background-color: transparent;
+  border: 2px solid #9400d3;
   padding: 0.4rem;
-  margin-top: 0.3rem;
+  color: #9400d3;
   font-weight: 600;
-  width: 30%;
-  display: flex;
-  justify-content: center;
+  border-radius: 0.2rem;
+  width: 180px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
   font-size: 1rem;
 }
+
 .default-button:hover {
-  background-color: rgb(184, 163, 163);
-  color: black;
-  transition: 0.3s ease-in-out;
-}
-.button-modal-create {
-  display: flex;
-  justify-content: flex-end;
+  background-color: #9400d3;
+  color: #ffffff;
 }
 
-.Header {
+.header {
   max-width: 1110px;
   margin: 0 auto 25px auto;
   position: relative;
@@ -193,89 +187,58 @@ body {
   justify-content: space-between;
   margin: 20px 0 35px 0;
 }
-.Logo {
+
+.logo {
   display: flex;
   align-items: center;
-  background: rgb(63, 94, 251);
-  background: radial-gradient(
-    circle,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 205, 0.5130427170868348) 100%
-  );
-  border-radius: 0.3rem;
+  border-radius: 10px;
+  border: solid 2px chartreuse;
+  background-color: #8078784d;
   width: 340px;
   height: 45px;
 }
 
-.Logo__titulo {
+.logo-title  {
   position: absolute;
-  left: 75px;
-  font-family: 'Exo';
+  left: 55px;
   font-weight: 700;
-  font-size: 2em;
+  font-size: 2.5rem;
 }
 
-Logo__icone {
+.logo-icon {
   position: absolute;
-  left: -15px;
-  top: -10px;
-}
-
-.Sacola {
-  background: rgb(63, 94, 251);
-  background: radial-gradient(
-    circle,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 205, 0.5130427170868348) 100%
-  );
-  border-radius: 0.3rem;
-  position: relative;
-}
-
-.Sacola__icone {
-  cursor: pointer;
-}
-
-.Sacola__badge {
-  width: 15px;
-  height: 15px;
-  vertical-align: middle;
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 40%;
-  bottom: 0;
-  right: 0;
+  left: -20px;
+  top: -15px;
 }
 
 @media (max-width: 1220px) {
-  .Header {
+  .header {
     max-width: 720px;
   }
 }
 
 @media (max-width: 840px) {
-  .Header {
+  .header {
     max-width: 320px;
   }
 }
 
 @media (max-width: 400px) {
-  .Header {
+  .header {
     max-width: 250px;
   }
+
   .row {
     column-gap: 20px;
   }
-  .Logo__titulo {
+
+  .logo-title {
     font-size: 1.5em;
   }
 }
 
-/*formulário de cadastro*/
 .modal-overlay {
-  background-color: #00000040;
+  background-color: #00000050;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -294,33 +257,31 @@ Logo__icone {
   max-width: 600px;
   height: auto;
   min-height: 300px;
-  background-color: rgba(119, 44, 224, 0.932);
-  border-radius: 1rem;
+  background-color: #fff;
+  border-radius: 0.8rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: solid 1.5px blueviolet;
 }
 
 .modal-header {
   display: flex;
   justify-content: space-between;
-  background-color: rgba(168, 52, 168, 0.423);
-  border-radius: 0.3rem;
+  align-items: center;
+  background-image: radial-gradient(
+    farthest-corner at 40px 40px,
+    #50c5ee 60%,
+    #00d4ff80 100%
+  );
   padding: 1rem;
-}
-
-.modal-body {
-  padding: 0.5rem 1rem;
-  background-color: rgba(168, 52, 168, 0.423);
 }
 
 .close-modal {
   text-decoration: none;
-  color: rgb(0, 0, 0);
+  color: #000000;
   font-size: 1.5rem;
   transform: scale(0.7);
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
@@ -328,7 +289,11 @@ Logo__icone {
   transform: scale(1);
 }
 
-.modal-body form {
+.modal-body {
+  padding: 0.5rem 1rem;
+}
+
+.modal-body div {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -339,37 +304,61 @@ Logo__icone {
 textarea {
   width: 100%;
   padding: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.8rem;
   outline: none;
-  border: solid 2px rgb(20, 19, 19);
-  margin-bottom: 0.2rem;
+  border: solid 1px #ccc;
+  margin-bottom: 0.4rem;
   border-radius: 0.3rem;
 }
 
 .modal-body div button {
-  padding: 0.6rem;
-  width: 20%;
+  padding: 0.5rem;
+  width: 30%;
   font-size: 1rem;
-  font-weight: 400;
-  color: black;
-  background: rgb(63, 94, 251);
-  background: radial-gradient(
-    circle,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 205, 0.5130427170868348) 100%
-  );
-  border-radius: 0.3rem;
+  background-color: transparent;
+  color: #0097ce;
+  border: solid 1px #0097ce;
   border-radius: 0.3rem;
   cursor: pointer;
-  transition: all 0.4s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .modal-body div button:hover {
-  background-color: aqua;
-  color: black;
+  background-color: #0097ce;
+  color: #fff;
 }
 
-.Acoes {
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 25px auto;
+  max-width: 1110px;
+}
+
+.msg-alert {
+  text-align: center;
+  z-index: 999999;
+  font-weight: 600;
+}
+
+.success {
+  background-color: #a4ffa4;
+  color: #006905;
+  border: solid 1px #006905;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+}
+
+.danger {
+  background-color: #ffa4a4;
+  color: #690000;
+  border: solid 1px #690000;
+  padding: 0.8rem;
+  border-radius: 0.3rem;
+}
+
+.actions {
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -377,42 +366,44 @@ textarea {
 }
 
 .btn {
-  border: solid 1px #00000040;
-  color: black;
-  border-radius: 0.2rem;
-  padding: 0.3rem;
+  border: none;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
   max-width: 280px;
   text-align: center;
-  font-weight: 600;
+  text-transform: uppercase;
   cursor: pointer;
-  height: 100%;
+  width: 48%;
+
+  transition: all 0.3s ease-in-out;
 }
 
-.Acoes__editar {
-  background-color: rgba(101, 33, 125, 0.527);
-  color: black;
+.actions-edit {
+  color: #003cff;
+  border: solid 1px #003cff;
+  background-color: transparent;
 }
 
-.Acoes__editar:hover {
-  background-color: rgba(25, 18, 150, 0.549);
-  transition: 0.4s ease-in-out;
+.actions-edit:hover {
+  color: #fff;
+  background-color: #003cff;
 }
 
-.Acoes__apagar {
-  background-color: rgba(223, 51, 51, 0.527);
-  color: black;
+.actions-delete {
+  color: #ff0000;
+  border: solid 1px #ff0000;
+  background-color: transparent;
 }
 
-.Acoes__apagar:hover {
-  background-color: rgba(192, 23, 88, 0.793);
-  transition: 0.4s ease-in-out;
+.actions-delete:hover {
+  color: #fff;
+  background-color: #ff0000;
 }
 
 .modal-body-delete {
   display: flex;
   flex-wrap: wrap;
 }
-
 .modal-body-delete p {
   width: 100%;
   padding: 2rem;
@@ -420,13 +411,13 @@ textarea {
   font-size: 1.5rem;
 }
 
-.btns_delete {
+.btns-delete {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
 
-.btn_delete {
+.btn-delete {
   background-color: transparent;
   padding: 0.5rem;
   font-size: 1.2rem;
@@ -435,21 +426,34 @@ textarea {
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
-.btn_delete_no {
-  color: #ed1212;
-  border: solid 1px #230303;
+
+.btn-delete-no {
+  color: #ff0000;
+  border: solid 1px #ff0000;
 }
 
-.btn_delete_no:hover {
-  background-color: #cab5b5;
-  color: rgb(223, 24, 24);
+.btn-delete-no:hover {
+  background-color: #ff0000;
+  color: #fff;
 }
-.btn_delete_yes {
+
+.btn-delete-yes {
   color: #00b309;
-  border: solid 1px #230303;
+  border: solid 1px #00b309;
 }
 
-.btn_delete_yes:hover {
-  background-color: #cab5b5;
-  color: rgb(14, 13, 13);
+.btn-delete-yes:hover {
+  background-color: chartreuse;
+  color: #fff;
+}
+
+.list-all {
+  text-decoration: none;
+  text-align: center;
+  display: none;
+  margin-right: 1rem;
+}
+
+.btns-list-cad {
+  display: flex;
 }
