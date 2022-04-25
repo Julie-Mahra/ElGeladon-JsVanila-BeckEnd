@@ -35,7 +35,7 @@
         <div class="modal">
 
           <div class="modal-header">
-            <h3 id="title-header-modal">Cadastrar Nova Paleta</h3>
+            <h3 _id="title-header-modal">Cadastrar Nova Paleta</h3>
             <a onclick="fecharModal()" class="close-modal">X</a>
           </div>
 
@@ -47,7 +47,7 @@
               <textarea type="text" name="descricao" id="descricao" placeholder="Descrição da Paleta"
                 rows="5"></textarea>
               <input type="text" name="foto" id="foto" placeholder="Foto da Paleta">
-              <button id="button-form-modal" onclick="createPaleta()">CADASTRAR</button>
+              <button id="button-form-modal" onclick="submitPaleta()">CADASTRAR</button>
             </div>
           </div>
         </div>
@@ -73,7 +73,7 @@
       <h2>Pesquisar Paletas</h2>
       <div class="paleta-escolhida-espaço">
         <div id="paleta-escolher-input-espaço">
-          <input type="number" id="idPaleta" placeholder="Digite o número da Paleta e clique em 'ESCOLHER' " />
+          <input type="text" id="idPaleta" placeholder="Digite o número da Paleta e clique em 'ESCOLHER' " />
           <button id="idPaletaButton" onclick="findByIdPaletas()">ESCOLHER</button>
         </div>
         <div id="paletaEscolhida">

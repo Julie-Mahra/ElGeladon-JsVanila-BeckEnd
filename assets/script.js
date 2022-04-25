@@ -1,22 +1,22 @@
 const baseUrl = 'http://localhost:3000/paletas';
 
 async function findAllPaletas() {
-  const response = await fetch(`${baseUrl}/todas-paletas`);
+  const response = await fetch(`${baseUrl}/all-paletas`);
   const paletas = await response.json();
 
   paletas.forEach(function (paleta) {
     document.querySelector('#paletaList').insertAdjacentHTML(
       'beforeend',
       `
-      <div class="PaletaListaItem" id="PaletaListaItem_${paleta.id}">
+      <div class="PaletaListaItem" id="PaletaListaItem_${paleta._id}">
           <div>
               <div class="PaletaListaItem__sabor">${paleta.sabor}</div>
               <div class="PaletaListaItem__preco">R$ ${paleta.preco}</div>
               <div class="PaletaListaItem__descricao">${paleta.descricao}</div>
          
               <div class="PaletaListaItem__acoes Acoes">
-                <button class = "Acoes__editar btn" onclick="abrirModal(${paleta.id})">EDITAR</button> 
-                <button class = "Acoes__apagar btn" onclick="abrirModalDelete(${paleta.id})">APAGAR</button> 
+                <button class = "Acoes__editar btn" onclick="abrirModal('${paleta._id}')">EDITAR</button> 
+                <button class = "Acoes__apagar btn" onclick="abrirModalDelete('${paleta._id}')">APAGAR</button> 
               </div>
          
           </div>
@@ -27,18 +27,20 @@ async function findAllPaletas() {
       `,
     );
   });
-}
+};
+
+findAllPaletas();
 
 async function findByIdPaletas() {
   const id = document.querySelector('#idPaleta').value;
 
-  const response = await fetch(`${baseUrl}/paleta/${id}`);
+  const response = await fetch(`${baseUrl}/one-paleta/${_id}`);
   const paleta = await response.json();
 
   const paletaEscolhidaDiv = document.querySelector('#paletaEscolhida');
 
   paletaEscolhidaDiv.innerHTML = `
-  <div class = "PaletaListaItem"id="PaletaListaItem_${paleta.id}">
+  <div class = "PaletaListaItem"id="PaletaListaItem_${paleta._id}">
     </div>
       <div class="PaletaCardItem__sabor">${paleta.sabor}</div>
       <div class="PaletaCardItem__preco">R$ ${paleta.preco}</div>
@@ -46,8 +48,8 @@ async function findByIdPaletas() {
     </div>
 
     <div class="PaletaListaItem__acoes Acoes">
-      <button class = "Acoes__editar btn" onclick="abrirModal(${paleta.id})">EDITAR</button> 
-      <button class = "Acoes__apagar btn" onclick="abrirModalDelete(${paleta.id})">APAGAR</button> 
+      <button class = "Acoes__editar btn" onclick="abrirModal('${paleta._id}')">EDITAR</button> 
+      <button class = "Acoes__apagar btn" onclick="abrirModalDelete('${paleta._id}')">APAGAR</button> 
     </div>
 
     <img class="PaletaCardItem__foto" src=${paleta.foto} alt="Paleta de${paleta.sabor}" />
@@ -55,22 +57,22 @@ async function findByIdPaletas() {
   `;
 }
 
-findAllPaletas();
 
-async function abrirModal(id = null) {
-  if (id != null) {
+
+async function abrirModal(id = "") {
+  if (id != "") {
     document.querySelector('#title-header-modal').innerText =
       'Atualizar Paleta';
     document.querySelector('#button-form-modal').innerText = 'Atualizar';
 
-    const response = await fetch(`${baseUrl}/paleta/${id}`);
+    const response = await fetch(`${baseUrl}/one-paleta/${id}`);
     const paleta = await response.json();
 
     document.querySelector('#sabor').value = paleta.sabor;
     document.querySelector('#preco').value = paleta.preco;
     document.querySelector('#descricao').value = paleta.descricao;
     document.querySelector('#foto').value = paleta.foto;
-    document.querySelector('#id').value = paleta.id;
+    document.querySelector('#id').value = paleta._id;
   } else {
     document.querySelector('#title-header-modal').innerText =
       'Cadastrar Paleta';
@@ -88,7 +90,7 @@ function fecharModal() {
   document.querySelector('#foto').value = '';
 }
 
-async function createPaleta() {
+async function submitPaleta() {
   const id = document.querySelector('#id').value;
   const sabor = document.querySelector('#sabor').value;
   const preco = document.querySelector('#preco').value;
@@ -103,9 +105,9 @@ async function createPaleta() {
     foto,
   };
 
-  const modoEdicaoAtivado = id > 0;
+  const modoEdicaoAtivado = id != "";
 
-  const endpoint = baseUrl + (modoEdicaoAtivado ? `/update/${id}` : `/create`);
+  const endpoint = baseUrl + (modoEdicaoAtivado ? `/update-paleta/${id}` : `/create-paleta`);
 
   const response = await fetch(endpoint, {
     method: modoEdicaoAtivado ? 'put' : 'post',
@@ -118,33 +120,14 @@ async function createPaleta() {
 
   const novaPaleta = await response.json();
 
-  const html = `
-  <div class="PaletaListaItem"id="PaletaListaItem_${paleta.id}">
-    <div>
-      <div class="PaletaListaItem__sabor">${novaPaleta.sabor}</div>
-      <div class="PaletaListaItem__preco">R$ ${novaPaleta.preco}</div>
-      <div class="PaletaListaItem__descricao">${novaPaleta.descricao}</div>
-    </div>
+  document.location.reload(true);
 
-    <div class="PaletaListaItem__acoes Acoes">
-      <button class = "Acoes__editar btn" onclick="abrirModal(${
-        paleta.id
-      })">EDITAR</button> 
-      <button class = "Acoes__apagar btn" onclick="abrirModalDelete(${
-        paleta.id
-      })">APAGAR</button> 
-    </div>
-
-      <img class="PaletaListaItem__foto" src=${novaPaleta.foto}
-      alt=${`Paleta de ${novaPaleta.sabor}`} />
-    </div>`;
-
-  if (modoEdicaoAtivado) {
+  /*  if (modoEdicaoAtivado) {
     document.querySelector(`#PaletaListaItem_${id}`).outerHTML = html;
   }
 
   document.querySelector('#paletaList').insertAdjacentHTML('beforeend', html);
-
+*/
   fecharModal();
 }
 
@@ -163,7 +146,7 @@ function fecharModalDelete() {
 }
 
 async function deletePaleta(id) {
-  const response = await fetch(`${baseUrl}/delete/${id}`, {
+  const response = await fetch(`${baseUrl}/delete-paleta/${id}`, {
     method: 'delete',
     headers: {
       'Content-Type': 'application/json',
@@ -172,10 +155,8 @@ async function deletePaleta(id) {
   });
 
   const result = await response.json();
-  alert(result.message);
 
-  document.getElementById('paletaList').innerHTML = '';
+  document.location.reload(true);
 
-  findAllPaletas();
   fecharModal();
 }
