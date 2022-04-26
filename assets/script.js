@@ -162,9 +162,9 @@ function showModalDelete(id) {
 
   const btnSim = document.querySelector('.btn_delete_yes');
 
-  btnSim.addEventListener('click', function () {
-    deletePaleta(id);
-  });
+  btnSim.addEventListener('click', () => {
+      deletePaleta(id);
+    });
 }
 
 function closeModalDelete() {
