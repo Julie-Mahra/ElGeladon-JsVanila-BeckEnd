@@ -21,10 +21,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Julie-Mahra/El-Geladon-Vanilla.git"
+    "url": "git+https://github.com/Julie-Mahra/ElGeladon-Pt-02-Vanilla-Backend-MongoDB.git"
   },
   "bugs": {
-    "url": "https://github.com/Julie-Mahra/El-Geladon-Vanilla/issues"
+    "url": "https://github.com/Julie-Mahra/ElGeladon-Pt-02-Vanilla-Backend-MongoDB.git/issues"
   },
-  "homepage": "https://github.com/Julie-Mahra/El-Geladon-Vanilla#readme"
+  "homepage": "https://github.com/Julie-Mahra/ElGeladon-Pt-02-Vanilla-Backend-MongoDB.git#readme"
 }
